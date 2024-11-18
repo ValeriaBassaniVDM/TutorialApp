@@ -1,0 +1,43 @@
+.backdrop{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert{
+    background-color: white;
+    width: 500px;
+    height: 300px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+button{
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: "Montserrat", sans-serif;
+    color: rgb(64, 64, 64);
+    background-color: rgb(235, 235, 235);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.primary{
+    color: rgb(255, 23, 23);
+    background-color: rgb(255, 228, 228);
+}
+
+.action{
+    display: flex;
+    gap: 5px;
+}

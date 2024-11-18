@@ -1,0 +1,50 @@
+<div class="main">
+  <!-- <a [routerLink]="['/auth']">Accedi</a> -->
+  <app-menu/>
+  <router-outlet/>
+  <!--<app-task-details [category]="active" [tasks]="getTasksForCategory(active)" (add)="updateTasks($event)"/>-->
+</div>
+
+<!--<div class="left-side">
+  <h4>TO DO</h4>
+  <div class="todo">
+    <div class="category">
+      <h4>Home</h4>
+      <p *ngFor="let task of homeTasks;">
+        <input type="checkbox" name="task.name" [(ngModel)]="task.status" (change)="completeTask(task)" />
+        {{ task.name }}
+        <button (click)="deleteTask(task)">Delete</button>
+      </p>
+    </div>
+    <div class="category">
+      <h4>Work</h4>
+      <p *ngFor="let task of workTasks;">
+        <input type="checkbox" name="task.name" [(ngModel)]="task.status" (change)="completeTask(task)" />
+        {{ task.name }}
+        <button (click)="deleteTask(task)">Delete</button>
+      </p>
+    </div>
+    <div class="category">
+      <h4>School</h4>
+      <p *ngFor="let task of schoolTasks;">
+        <input type="checkbox" name="task.name" [(ngModel)]="task.status" (change)="completeTask(task)" />
+        {{ task.name }}
+        <button (click)="deleteTask(task)">Delete</button>
+      </p>
+    </div>
+  </div>
+  <h4>completed</h4>
+  <div class="todo">
+    <div class="category">
+      <p *ngFor="let task of completed;">
+        <input type="checkbox" name="task.name" [(ngModel)]="task.status" (change)="completeTask(task)" />
+        {{ task.name }}
+        <button (click)="deleteTask(task)">Delete</button>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="divider" role="separator" aria-label="Divider"></div>
+<div class="right-side">
+  <app-input-data [tasks]="tasks" (add)="AddTask($event)" />
+</div>-->

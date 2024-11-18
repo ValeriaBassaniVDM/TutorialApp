@@ -1,0 +1,12 @@
+
+<div class="auth">
+    <div class="error" *ngIf="error">
+        <p>{{error}}</p>
+    </div>
+    <form #auth="ngForm" (ngSubmit)="onSubmit(auth)" class="add">
+        <input type="text" ngModel name="name" placeholder="Name" required/>
+        <input type="text" ngModel name="lastname" placeholder="lastname" required />
+        <button [disabled]="!auth.valid">Login</button>
+    </form>
+</div>
+

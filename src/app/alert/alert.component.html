@@ -1,0 +1,9 @@
+<div class="backdrop" (click)="closeAlert()">
+    <div class="alert">
+        <p>{{message}}</p>
+        <div class="action">
+            <button class="primary" (click)="logout()">Logout</button>
+            <button (click)="closeAlert()">Close</button>    
+        </div>
+    </div>
+</div>

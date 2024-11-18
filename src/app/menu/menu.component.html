@@ -1,0 +1,62 @@
+<div class="menu-container">
+  <app-alert [message]="message" *ngIf="message" (close)="handleAlert()"/>
+
+  <ng-container *ngIf="user; else showLogin">
+    <div class="auth">
+      <a (click)="setAlert()">Logout</a>
+    </div>
+    <h3>{{ user.name }}</h3>
+  </ng-container>
+  <ng-template #showLogin>
+    <div class="auth">
+      <a [routerLink]="['/auth']">Login</a>
+      <!-- <a [routerLink]="['/auth']">Signin</a> -->
+    </div>
+  </ng-template>
+  
+  <div class="menu">
+    <h4>Menù</h4>
+    <h5>Tasks</h5>
+    <ng-container *ngFor="let category of categories;">
+      <div [routerLink]="['/task', category]" [routerLinkActive]="['active']">
+        <div class="category" [ngClass]="'category-' + category">
+          <div class="name">
+            <div class="color"></div>
+            <p>{{category}}</p>
+          </div>
+          <div class="number">
+            <p>{{categoryCount(category)}}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  
+    <!-- <div class="category category-active">
+        <div class="name">
+          <div class="color"></div>
+          <p>Home</p>
+        </div>
+        <div class="number">
+          <p>5</p>
+        </div>  
+      </div>
+      <div class="category">
+        <div class="name">
+          <div class="color"></div>
+          <p>Work</p>
+        </div>
+        <div class="number">
+          <p>2</p>
+        </div>
+      </div>
+      <div class="category">
+        <div class="name">
+          <div class="color"></div>
+          <p>School</p>
+        </div>
+        <div class="number">
+          <p>3</p>
+        </div>
+      </div> -->
+  </div>
+</div>

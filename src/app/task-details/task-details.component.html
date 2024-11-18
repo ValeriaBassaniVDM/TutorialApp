@@ -1,0 +1,70 @@
+<div class="tasks">
+    <div class="header">
+        <h4>{{category}}</h4>
+        <div class="notif">
+            <img width="28" height="28" src="https://img.icons8.com/plumpy/48/present.png" alt="present" />
+            {{expiring}}
+            <div class="number">
+                {{completedTasks.length + uncompletedTasks.length}}
+            </div>
+        </div>
+    </div>
+    <!-- <a [routerLink]="['/task', category, 'addtask', category]">Add task</a>
+    <router-outlet/> -->
+    <app-input-data [category]="category" (add)="AddTask($event)" />
+    <div class="todo">
+        <h4>To do</h4>
+        <ng-container *ngFor="let task of expiringTasks">
+            <div class="task">
+                <input type="checkbox" name="task.name" [(ngModel)]="task.status" (change)="onChangeTask(task)" />
+                <div class="details">
+                    {{ task.name }}
+                    <div class="date expiring" *ngIf="task.date!=null">
+                        Expiring soon: {{task.date | date}}
+                    </div>
+                </div>
+                <button (click)="deleteTask(task)">Delete</button>
+            </div>
+        </ng-container>
+        <ng-container *ngFor="let task of uncompletedTasks;">
+            <div *ngIf="uncompletedTasks.length > 0; else noTasks">
+                <div class="task">
+                    <input type="checkbox" name="task.name" [(ngModel)]="task.status" (change)="onChangeTask(task)" />
+                    <div class="details">
+                        {{ task.name }}
+                        <div class="date" *ngIf="task.date!=null">
+                            Expires: {{task.date | date}}
+                        </div>
+                    </div>
+                    <button (click)="deleteTask(task)">Delete</button>
+                </div>
+            </div>
+            <ng-template #noTasks>
+                <div class="no-tasks">
+                    <p>Good job! Everything's done</p>
+                </div>
+            </ng-template>
+        </ng-container>
+
+        <h4>Completed</h4>
+        <ng-container *ngFor="let task of completedTasks;">
+            <div *ngIf="completedTasks.length > 0; else noTasksDone">
+                <div class="task task-done">
+                    <input type="checkbox" name="task.name" [(ngModel)]="task.status" (change)="onChangeTask(task)" />
+                    <div class="details">
+                        {{ task.name }}
+                        <div class="date" *ngIf="task.date!=null">
+                            Expires: {{task.date | date}}
+                        </div>
+                    </div>
+                    <button (click)="deleteTask(task)">Delete</button>
+                </div>
+            </div>
+            <ng-template #noTasksDone>
+                <div class="no-tasks">
+                    <p>No tasks here</p>
+                </div>
+            </ng-template>
+        </ng-container>
+    </div>
+</div>

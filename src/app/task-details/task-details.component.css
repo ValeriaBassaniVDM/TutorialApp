@@ -1,0 +1,159 @@
+
+.number{
+    background-color: rgb(224, 223, 223);
+    padding: 5px 8px 5px 8px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.tasks{
+    width: 20em;
+    flex-grow: 1;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: black;
+    gap: 20px;
+}
+
+.tasks h4,p{
+    color: black;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header h4{
+    width: auto;
+    font-size: 32px;
+}
+
+.header .number{
+    background-color: rgba(255, 255, 255, 0);
+    border-left: solid 2px rgb(208, 208, 208);
+    border-radius: 0px;
+    font-size: 32px;
+    padding-left: 15px;
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+input[type="checkbox"]{
+    margin-top: 2px;
+}
+
+.notif{
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 5px;
+    font-weight: 500;
+}
+
+.todo{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.task{
+    display: flex;
+    align-items: center;
+    border-bottom: solid 2px rgb(208, 208, 208);
+    padding-bottom: 10px;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.task-done{
+    color: rgb(156, 156, 156);
+    border-bottom: solid 2px rgb(238, 238, 238);
+}
+
+.task-done button{
+    background-color: #f89a9b;
+}
+
+.task-done:hover{
+    color: black;
+    border-bottom: solid 2px rgb(208, 208, 208);
+}
+
+.task-done:hover button{
+    background-color: #ff4d4f;
+}
+
+/* Task item styling */
+
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    border: solid 1px rgb(208, 208, 208);
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    margin-left: auto;
+    padding: 5px 10px;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #e44d4d;
+}
+
+
+/* Add additional task styling */
+button:focus {
+    outline: none;
+}
+
+input[type="checkbox"]:focus {
+    outline: none;
+}
+
+a{
+    background-color:rgb(244, 244, 244);
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: "Montserrat", sans-serif;
+    color: rgb(64, 64, 64);
+    background-color: rgb(248, 248, 248);
+    font-weight: 500;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.date{
+    font-size: 11px;
+    color: rgb(114, 114, 114);
+}
+
+.expiring{
+    color: red;
+}

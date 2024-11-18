@@ -1,0 +1,20 @@
+<div class="add">
+    <span [ngClass]="'category-' + category"></span>
+    <form  #add="ngForm" (ngSubmit)="handleSubmit()" class="form">
+        <div class="text">
+            <input type="text" [(ngModel)]="enteredName" name="text" placeholder="+ Add a new task"  required/>
+            <!--<p>Category</p>
+            <div>
+                <input type="radio" name="category" (click)="setCategory('Home')" [checked]="selectedCategory === 'Home'">Home
+                <input type="radio" name="category" (click)="setCategory('Work')">Work
+                <input type="radio" name="category" (click)="setCategory('School')">School
+            </div>-->
+            <button [disabled]="!add.valid">Aggiungi</button>    
+        </div>
+        <p>Expiring date:</p>
+        <input type="date" [(ngModel)]="date" name="date">
+        <!-- <input type="submit" value="Aggiungi" > -->
+    </form>
+</div>
+
+
