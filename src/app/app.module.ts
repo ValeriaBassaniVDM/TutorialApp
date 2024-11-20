@@ -10,11 +10,22 @@ import { HttpLink } from "apollo-angular/http";
 import { InMemoryCache } from "@apollo/client/core";
 import { routes } from "./app.routes";
 import { FilmsComponent } from "./films/films.component";
+import { provideRedux } from "angular-redux";
+import { store } from "./store";
+
 
 @NgModule({
     declarations:[AppComponent],
     bootstrap:[AppComponent],
-    imports: [ApolloModule, HttpClientModule, BrowserModule, TaskDetailsComponent, MenuComponent, RouterModule.forRoot(routes), RouterOutlet, FilmsComponent],
+    imports: [
+        ApolloModule, 
+        HttpClientModule, 
+        BrowserModule,  
+        TaskDetailsComponent, 
+        MenuComponent, 
+        RouterModule.forRoot(routes), 
+        RouterOutlet, 
+        FilmsComponent],
     exports: [RouterModule],
     providers: [
         {
@@ -28,6 +39,7 @@ import { FilmsComponent } from "./films/films.component";
             },
             deps: [HttpLink],
         },
+        provideRedux({ store })
     ],
 })
 
