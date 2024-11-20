@@ -1,11 +1,13 @@
 <div class="main">
-    current list:
+    Current list:
+    <br><br>
     <ng-container *ngIf="(list|async)?.length==0; else showList">
         lista vuota
     </ng-container> 
     <ng-template #showList>
         <ng-container *ngFor="let task of list|async">
             {{task}}
+            <br>
             </ng-container>
       </ng-template>
     <form>

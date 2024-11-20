@@ -8,7 +8,7 @@
                     <button (click)="onMore(film)">More friends</button>
                 </ng-container>
                 <ng-container *ngIf="otherChar.length>0 && currentFilm==film">
-                    <button (click)="onLess()">Less friends</button>
+                    <button (click)="onLess()" class="less">Less friends</button>
                 </ng-container>
             </div>
         </ng-container>

@@ -91,8 +91,6 @@ input[type="checkbox"]{
     background-color: #ff4d4f;
 }
 
-/* Task item styling */
-
 input[type="checkbox"] {
     width: 15px;
     height: 15px;
@@ -119,8 +117,6 @@ button:hover {
     background-color: #e44d4d;
 }
 
-
-/* Add additional task styling */
 button:focus {
     outline: none;
 }
@@ -162,6 +158,11 @@ a{
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.less{
+    background-color: rgb(58, 58, 58);
+    color: white;
 }
 
 .main{
