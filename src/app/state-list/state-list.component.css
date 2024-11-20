@@ -40,6 +40,14 @@ h3 {
     margin: 5px;
 }
 
+.todo {
+    flex-grow: 1;
+    padding: 1em;
+    box-sizing: border-box;
+    display: flex;
+    gap: 15px;
+}
+
 .menu p {
     font-weight: 600;
     color: rgb(99, 99, 99);
@@ -140,3 +148,53 @@ a {
 }
 
 
+button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    margin-left: auto;
+    padding: 5px 10px;
+    background-color: #e9e9e9;
+    color: rgb(79, 79, 79);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #e44d4d;
+}
+
+.actions{
+    margin-top: 5px;
+    display: flex;
+    gap: 5px;
+}
+
+input[type="text"]{
+    margin-top: 5px;
+    border: solid 1px rgb(168, 168, 168);
+    border-radius: 5px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+input[type="text"]:focus {
+   border: solid 1px !important;
+}
+
+input[type="text"]::placeholder{
+    font-family: "Montserrat", sans-serif;
+    color: rgb(168, 168, 168);
+    font-weight: 600;
+}
+
+
+.main{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 40px 0px 20px 0px;
+}

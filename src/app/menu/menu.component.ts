@@ -1,11 +1,12 @@
-import { Component, DestroyRef, inject, Input, OnInit, output } from '@angular/core';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { User } from '../app.component';
 import { AuthService } from '../auth/auth.service';
 import { AlertComponent } from '../alert/alert.component';
-import { Apollo, gql } from 'apollo-angular';
 import { FilmsComponent } from "../films/films.component";
+import { StateListComponent } from "../state-list/state-list.component";
+import { CounterComponent } from "../counter/counter.component";
 
 export interface Product{
   id:string,
@@ -16,20 +17,20 @@ export interface Product{
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [NgFor, NgIf, RouterLink, FilmsComponent, RouterLinkActive, AlertComponent, NgClass, FilmsComponent],
+  imports: [NgFor, NgIf, RouterLink, FilmsComponent, RouterLinkActive, AlertComponent, NgClass, FilmsComponent, AsyncPipe, StateListComponent, CounterComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })
 export class MenuComponent implements OnInit {
-
-  //@Input() user!:User
 
   categories: string[] = ["Home", "Work", "School"];
   users: User[] = []
   user: User | undefined;
   dataUsers: User[] = []
 
-  constructor(private readonly apollo: Apollo, private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+  ){}
 
   products:Product[]=[]
 
@@ -37,39 +38,6 @@ export class MenuComponent implements OnInit {
     this.authService.getUserObservable().subscribe(user => {
       this.user = user;
     });
-    // if(this.user){
-    //   console.log(this.user?.id);
-
-    //   this.apollo
-    //   .watchQuery({
-    //     query: gql`
-    //     query GetUserFilms($id:ID){
-    //     person(id: $id) {
-    //       filmConnection {
-    //         edges {
-    //             node {
-    //                 title
-    //                 id 
-    //                 director
-    //                 }
-    //                }
-    //             }
-    //           }
-    //       }
-    //   `,
-    //   variables:{
-    //     id:this.user.id
-    //   }
-    //   })
-    //   .valueChanges.subscribe((result: any) => {
-    //     const edges = result?.data?.person?.filmConnection?.edges || [];
-    //     this.products = edges.map((edge: any) => ({
-    //       id: edge.node.id,
-    //       title: edge.node.title,
-    //       director: edge.node.director,
-    //     }));
-    //   });
-    // }
   }
 
   categoryCount(category: string): number {
@@ -95,5 +63,5 @@ export class MenuComponent implements OnInit {
 
   handleAlert() {
     this.message = null
-  }
+  }  
 }

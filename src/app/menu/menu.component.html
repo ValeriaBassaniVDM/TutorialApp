@@ -1,6 +1,5 @@
 <div class="menu-container">
   <app-alert [message]="message" *ngIf="message" (close)="handleAlert()"/>
-
   <ng-container *ngIf="user; else showLogin">
     <div class="auth">
       <a (click)="setAlert()">Logout</a>
@@ -13,7 +12,6 @@
       <!-- <a [routerLink]="['/auth']">Signin</a> -->
     </div>
   </ng-template>
-  
   <div class="menu">
     <h4>Menù</h4>
     <h5>Tasks</h5>
@@ -33,3 +31,7 @@
   </div>
 </div>
 <app-films/>
+<app-counter/>
+<app-state-list/>
+
+

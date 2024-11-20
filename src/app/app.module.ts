@@ -8,11 +8,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { APOLLO_OPTIONS, ApolloModule } from "apollo-angular";
 import { HttpLink } from "apollo-angular/http";
 import { InMemoryCache } from "@apollo/client/core";
-import { routes } from "./app.routes";
 import { FilmsComponent } from "./films/films.component";
-import { provideRedux } from "angular-redux";
-import { store } from "./store";
-
+import { StoreModule } from '@ngrx/store';
+import { counterReducer, listReducer } from "./reducers/counter.reducer";
+import { routes } from "./app.routes";
 
 @NgModule({
     declarations:[AppComponent],
@@ -24,8 +23,12 @@ import { store } from "./store";
         TaskDetailsComponent, 
         MenuComponent, 
         RouterModule.forRoot(routes), 
+        StoreModule.forRoot({
+            count: counterReducer,
+            list: listReducer
+          }),
         RouterOutlet, 
-        FilmsComponent],
+        FilmsComponent, ],
     exports: [RouterModule],
     providers: [
         {
@@ -39,7 +42,6 @@ import { store } from "./store";
             },
             deps: [HttpLink],
         },
-        provideRedux({ store })
     ],
 })
 
