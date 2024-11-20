@@ -157,3 +157,14 @@ a{
 .expiring{
     color: red;
 }
+
+.char{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main{
+    display: flex;
+    gap: 30px;
+}

@@ -1,17 +1,23 @@
-<ng-container *ngFor="let film of films">
-    <div class="task">
-        <p>{{film.title}}</p>
-        <ng-container *ngIf="otherChar.length==0">
-            <button (click)="onMore(film)">More friends</button>
-        </ng-container>
-        <ng-container *ngIf="otherChar.length>0">
-            <button (click)="onLess()">Less friends</button>
+<div class="main">
+    <div>
+        <h4>Films</h4>
+        <ng-container *ngFor="let film of films" class="films">
+            <div class="task">
+                <p>{{film.title}}</p>
+                <ng-container *ngIf="otherChar.length==0 || currentFilm!=film">
+                    <button (click)="onMore(film)">More friends</button>
+                </ng-container>
+                <ng-container *ngIf="otherChar.length>0 && currentFilm==film">
+                    <button (click)="onLess()">Less friends</button>
+                </ng-container>
+            </div>
         </ng-container>
     </div>
-    
-</ng-container>
-<br>
-<ng-container *ngFor="let char of otherChar">
-    {{char}}
-    <br>
-</ng-container>
+    <div class="char">
+        <h4>Characters</h4>
+        <ng-container *ngFor="let char of otherChar">
+            {{char}}
+            <br>
+        </ng-container>
+    </div>
+</div>

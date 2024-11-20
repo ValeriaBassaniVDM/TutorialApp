@@ -27,7 +27,6 @@ export class FilmsDetailsComponent {
   private activatedRoute = inject(ActivatedRoute)
   otherChar: Character[] = []
 
-
   films: Film[] = []
 
   ngOnInit(): void {
@@ -66,14 +65,15 @@ export class FilmsDetailsComponent {
       }
     })
     this.destroyRef.onDestroy(() => subsciption.unsubscribe())
-    console.log(this.otherChar);
   }
 
   onLess(){
     this.otherChar=[]
   }
 
+  currentFilm:Film|undefined=undefined
   onMore(film: Film) {
+    this.currentFilm=film
     this.apollo
       .watchQuery({
         query: gql`
@@ -97,7 +97,6 @@ export class FilmsDetailsComponent {
           this.otherChar = result?.data?.film?.characterConnection?.edges.map(
             (edge: any) => edge.node.name
           );
-          console.log('Characters:', this.otherChar);
         },
         error: (error) => {
           console.error('Error fetching characters:', error);

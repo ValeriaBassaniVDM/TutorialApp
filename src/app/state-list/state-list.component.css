@@ -147,7 +147,6 @@ a {
     gap: 5px;
 }
 
-
 button {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
@@ -190,7 +189,6 @@ input[type="text"]::placeholder{
     color: rgb(168, 168, 168);
     font-weight: 600;
 }
-
 
 .main{
     display: flex;
