@@ -9,11 +9,12 @@ import { APOLLO_OPTIONS, ApolloModule } from "apollo-angular";
 import { HttpLink } from "apollo-angular/http";
 import { InMemoryCache } from "@apollo/client/core";
 import { routes } from "./app.routes";
+import { FilmsComponent } from "./films/films.component";
 
 @NgModule({
     declarations:[AppComponent],
     bootstrap:[AppComponent],
-    imports:[ApolloModule, HttpClientModule, BrowserModule,TaskDetailsComponent,MenuComponent, RouterModule.forRoot(routes),RouterOutlet],
+    imports: [ApolloModule, HttpClientModule, BrowserModule, TaskDetailsComponent, MenuComponent, RouterModule.forRoot(routes), RouterOutlet, FilmsComponent],
     exports: [RouterModule],
     providers: [
         {

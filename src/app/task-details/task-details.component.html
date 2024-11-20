@@ -1,6 +1,6 @@
 <div class="tasks">
     <div class="header">
-        <h4>{{category}}</h4>
+        <h4>{{product}}</h4>
         <div class="notif">
             <img width="28" height="28" src="https://img.icons8.com/plumpy/48/present.png" alt="present" />
             {{expiring}}
@@ -11,7 +11,7 @@
     </div>
     <!-- <a [routerLink]="['/task', category, 'addtask', category]">Add task</a>
     <router-outlet/> -->
-    <app-input-data [category]="category" (add)="AddTask($event)" />
+    <app-input-data [category]="product" (add)="AddTask($event)" />
     <div class="todo">
         <h4>To do</h4>
         <ng-container *ngFor="let task of expiringTasks">

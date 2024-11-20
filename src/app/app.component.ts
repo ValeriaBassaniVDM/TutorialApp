@@ -23,49 +23,46 @@ export class AppComponent {
   users: User[] = [];
 
   dataUsers: User[] = []
-  constructor(private readonly apollo: Apollo) { }
+  //constructor(private readonly apollo: Apollo) { }
 
-  // ngOnInit(): void {
-  //   // if (!localStorage.getItem('users')) {
-  //   //   this.populateLocalStorage();
-  //   // }else{
-  //   //   this.users = JSON.parse(localStorage.getItem('users') || '[]') as User[];
-  //   // }
-  //   this.apollo
-  //     .watchQuery({
-  //       query: gql`
-  //         {
-  //           allPeople(first: 4) {
-  //             edges {
-  //               node {
-  //                 name
-  //                 birthYear
-  //                 id
-  //               }
-  //             }
-  //           }
-  //         }
-  //       `,
-  //     })
-  //     .valueChanges.subscribe((result: any) => {
+  ngOnInit(): void {
+    if (!localStorage.getItem('users')) {
+      this.populateLocalStorage();
+    }else{
+      this.users = JSON.parse(localStorage.getItem('users') || '[]') as User[];
+    }
+    // this.apollo
+    //   .watchQuery({
+    //     query: gql`
+    //       {
+    //         allPeople(first: 4) {
+    //           edges {
+    //             node {
+    //               name
+    //               birthYear
+    //               id
+    //             }
+    //           }
+    //         }
+    //       }
+    //     `,
+    //   })
+    //   .valueChanges.subscribe((result: any) => {
 
-  //       const edges = result?.data?.allPeople?.edges || [];
+    //     const edges = result?.data?.allPeople?.edges || [];
 
-  //       this.dataUsers = edges.map((edge: any) => ({
-  //         id: edge.node.id, // Converte l'ID in numero
-  //         name: edge.node.name,
-  //         bithDate: edge.node.birthYear,
-  //         tasks: [],
-  //       }));
-
-  //       console.log(this.dataUsers);
-
-
-  //       // this.rates = result.data?.rates;
-  //       // this.loading = result.loading;
-  //       // this.error = result.error;
-  //     });
-  // }
+    //     this.dataUsers = edges.map((edge: any) => ({
+    //       id: edge.node.id,
+    //       name: edge.node.name,
+    //       bithDate: edge.node.birthYear,
+    //       tasks: [],
+    //     }));
+    //     //console.log(this.dataUsers);
+    //     // this.rates = result.data?.rates;
+    //     // this.loading = result.loading;
+    //     // this.error = result.error;
+    //   });
+  }
 
   populateLocalStorage() {
     const users: User[] = [

@@ -27,7 +27,7 @@ export class TaskDetailsComponent implements OnInit {
   expiring: number = 0
   users: User[] = []
 
-  category: string | null = ""
+  product: string | null = ""
   private destroyRef = inject(DestroyRef)
   private activatedRoute = inject(ActivatedRoute)
 
@@ -45,7 +45,7 @@ export class TaskDetailsComponent implements OnInit {
       next: (paramMap) => {
         this.users = JSON.parse(localStorage.getItem('users') || '[]') as User[];
         this.userIndex = this.users.findIndex(u => u.id === this.user!.id);
-        this.category = paramMap.get('category');
+        this.product = paramMap.get('product');
         this.filterTasksByCategory();
       }
     })
@@ -66,8 +66,8 @@ export class TaskDetailsComponent implements OnInit {
 
   private filterTasksByCategory(): void {
     this.expiringTasks=[]
-    if (this.category) {
-      const filteredTasks = this.users[this.userIndex].tasks.filter(task => task.category === this.category);
+    if (this.product) {
+      const filteredTasks = this.users[this.userIndex].tasks.filter(task => task.category === this.product);
       this.completedTasks = filteredTasks.filter(task => task.status === true);
       this.uncompletedTasks = filteredTasks.filter(task => task.status === false);
       this.countExpiring(this.uncompletedTasks)

@@ -4,10 +4,12 @@ import { InputDataComponent } from './input-data/input-data.component';
 import { AuthComponent } from './auth/auth.component';
 import { SigninComponent } from './signin/signin.component';
 import { AuthGard } from './auth/auth.guard';
+import { FilmsDetailsComponent } from './films-details/films-details.component';
+import { FilmsGuard } from './films/films.guard';
 
 export const routes: Routes = [
     {
-        path: 'task/:category',
+        path: 'task/:product',
         component: TaskDetailsComponent,
         canActivate:[AuthGard],
         children: [
@@ -15,5 +17,10 @@ export const routes: Routes = [
         ]
     },
     { path: 'auth', component: AuthComponent },
-    { path: 'signin', component: SigninComponent }
+    { path: 'signin', component: SigninComponent },
+    {
+        path: 'character/:id',
+        component: FilmsDetailsComponent,
+        canActivate:[FilmsGuard],
+    },
 ];
