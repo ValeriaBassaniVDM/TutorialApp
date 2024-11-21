@@ -1,37 +1,35 @@
-<div class="menu-container">
-  <app-alert [message]="message" *ngIf="message" (close)="handleAlert()"/>
-  <ng-container *ngIf="user; else showLogin">
-    <div class="auth">
-      <a (click)="setAlert()">Logout</a>
-    </div>
-    <h3>{{ user.name }}</h3>
-  </ng-container>
-  <ng-template #showLogin>
-    <div class="auth">
-      <a [routerLink]="['/auth']">Login</a>
-      <!-- <a [routerLink]="['/auth']">Signin</a> -->
-    </div>
-  </ng-template>
-  <div class="menu">
-    <h4>Menù</h4>
-    <h5>Tasks</h5>
-    <ng-container *ngFor="let category of categories;">
-      <div [routerLink]="['/task', category]" [routerLinkActive]="['active']">
-        <div class="category" [ngClass]="'category-' + category">
-          <div class="name">
-            <div class="color"></div>
-            <p>{{category}}</p>
-          </div>
-          <div class="number">
-            <p>{{categoryCount(category)}}</p>
+<div class="container">
+  <div class="menu-container">
+    <app-alert [message]="message" *ngIf="message" (close)="handleAlert()"/>
+    <ng-container *ngIf="user; else showLogin">
+      <div class="auth">
+        <a (click)="setAlert()">Logout</a>
+      </div>
+      <h3>{{ user.name }}</h3>
+    </ng-container>
+    <ng-template #showLogin>
+      <div class="auth">
+        <a [routerLink]="['/auth']">Login</a>
+      </div>
+    </ng-template>
+    <div class="menu">
+      <h4>Menù</h4>
+      <h5>Tasks</h5>
+      <ng-container *ngFor="let category of categories;">
+        <div [routerLink]="['/taskmenu/task', category]" [routerLinkActive]="['active']">
+          <div class="category" [ngClass]="'category-' + category">
+            <div class="name">
+              <div class="color"></div>
+              <p>{{category}}</p>
+            </div>
+            <div class="number">
+              <p>{{categoryCount(category)}}</p>
+            </div>
           </div>
         </div>
-      </div>
-    </ng-container>
+      </ng-container>
+    </div>
   </div>
+  
+  <router-outlet/> 
 </div>
-<app-films/>
-<app-counter/>
-<app-state-list/>
-
-

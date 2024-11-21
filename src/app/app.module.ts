@@ -10,25 +10,32 @@ import { HttpLink } from "apollo-angular/http";
 import { InMemoryCache } from "@apollo/client/core";
 import { FilmsComponent } from "./films/films.component";
 import { StoreModule } from '@ngrx/store';
-import { counterReducer, listReducer } from "./reducers/counter.reducer";
+import { counterReducer } from "./counter/reducer/counter.reducer";
 import { routes } from "./app.routes";
+import { HomepageComponent } from "./homepage/homepage.component";
+import { listReducer } from "./state-list/reducer/list.reducer";
+import { authReducer } from "./auth/reducer/auth.reducer";
 
 @NgModule({
     declarations:[AppComponent],
     bootstrap:[AppComponent],
     imports: [
-        ApolloModule, 
-        HttpClientModule, 
-        BrowserModule,  
-        TaskDetailsComponent, 
-        MenuComponent, 
-        RouterModule.forRoot(routes), 
-        StoreModule.forRoot({
-            count: counterReducer,
-            list: listReducer
-          }),
-        RouterOutlet, 
-        FilmsComponent, ],
+    HomepageComponent,
+    ApolloModule,
+    HttpClientModule,
+    BrowserModule,
+    TaskDetailsComponent,
+    MenuComponent,
+    RouterModule.forRoot(routes),
+    StoreModule.forRoot({
+        count: counterReducer,
+        list: listReducer,
+        user: authReducer
+    }),
+    RouterOutlet,
+    FilmsComponent,
+    HomepageComponent
+],
     exports: [RouterModule],
     providers: [
         {

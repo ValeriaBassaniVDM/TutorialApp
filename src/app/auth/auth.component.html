@@ -1,5 +1,5 @@
-
 <div class="auth">
+    <h4>Login</h4>
     <div class="error" *ngIf="error">
         <p>{{error}}</p>
     </div>
@@ -8,5 +8,5 @@
         <input type="text" ngModel name="lastname" placeholder="lastname" required />
         <button [disabled]="!auth.valid">Login</button>
     </form>
+    <p>{{ (user$ | async)?.name }}</p>
 </div>
-

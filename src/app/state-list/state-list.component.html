@@ -1,4 +1,5 @@
 <div class="main">
+    <h4>State management:</h4>
     Current list:
     <br><br>
     <ng-container *ngIf="(list|async)?.length==0; else showList">
@@ -18,3 +19,6 @@
         </div>
     </form>
 </div>
+<app-counter/>
+
+

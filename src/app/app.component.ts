@@ -5,9 +5,9 @@ import { RouterOutlet } from '@angular/router';
 import { Apollo, gql, ApolloModule } from 'apollo-angular';
 
 export interface User {
-  id: number,
-  name: string,
-  lastname: string,
+  id: number | null,
+  name: string |null,
+  lastname: string|null,
   tasks: Task[]
 }
 

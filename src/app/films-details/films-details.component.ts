@@ -1,7 +1,6 @@
 import { Component, DestroyRef, inject } from '@angular/core';
-import { FilmService } from '../films/films.service';
 import { Apollo, gql } from 'apollo-angular';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { NgFor, NgIf } from '@angular/common';
 import { Character } from '../films/films.component';
 
@@ -21,13 +20,14 @@ interface Film {
 
 export class FilmsDetailsComponent {
 
-  constructor(private readonly apollo: Apollo, private router: Router, private filmService: FilmService) { }
+  constructor(private readonly apollo: Apollo) { }
 
   private destroyRef = inject(DestroyRef)
   private activatedRoute = inject(ActivatedRoute)
   otherChar: Character[] = []
 
   films: Film[] = []
+  vehicles: string[] = []
 
   ngOnInit(): void {
     const subsciption = this.activatedRoute.paramMap.subscribe({
@@ -47,6 +47,11 @@ export class FilmsDetailsComponent {
                             }
                         }
                     }
+                    vehicleConnection {
+                      vehicles {
+                          name
+                      }
+                    }
                 }
             }
            `, variables: {
@@ -57,6 +62,8 @@ export class FilmsDetailsComponent {
             next: (result: any) => {
               const edges = result?.data?.person?.filmConnection.edges || [];
               this.films = edges.map((edge: { node: any }) => edge.node);
+              const vehicleNames = result?.data?.person?.vehicleConnection?.vehicles || [];
+              this.vehicles = vehicleNames.map((vehicle: { name: any; }) => vehicle.name) ;
             },
             error: (error) => {
               console.error('Error fetching films:', error);
@@ -103,4 +110,16 @@ export class FilmsDetailsComponent {
         },
       });
   }
+
+  message: string | null = null
+
+  setAlert() {
+    this.message = "Sure to logout?"
+  }
+
+  handleAlert() {
+    this.message = null
+  }  
+
+
 }

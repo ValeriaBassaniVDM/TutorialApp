@@ -1,0 +1,15 @@
+.main{
+    display: flex;
+    gap:10px
+}
+
+button{
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: "Montserrat", sans-serif;
+    color: rgb(64, 64, 64);
+    background-color: rgb(235, 235, 235);
+    font-weight: 600;
+    cursor: pointer;
+}

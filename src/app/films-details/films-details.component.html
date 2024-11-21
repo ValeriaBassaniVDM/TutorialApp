@@ -19,5 +19,15 @@
             {{char}}
             <br>
         </ng-container>
+        <ng-container *ngIf="otherChar.length==0">
+            <p>choos a film to see the Characters</p>
+        </ng-container>
+    </div>
+    <div class="char">
+        <h4>Starships</h4>
+        <ng-container *ngFor="let ship of vehicles">
+            {{ship}}
+            <br>
+        </ng-container>
     </div>
 </div>

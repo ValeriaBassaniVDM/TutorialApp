@@ -1,26 +1,32 @@
 import { Routes } from '@angular/router';
 import { TaskDetailsComponent } from './task-details/task-details.component';
-import { InputDataComponent } from './input-data/input-data.component';
 import { AuthComponent } from './auth/auth.component';
-import { SigninComponent } from './signin/signin.component';
 import { AuthGard } from './auth/auth.guard';
 import { FilmsDetailsComponent } from './films-details/films-details.component';
 import { FilmsGuard } from './films/films.guard';
+import { MenuComponent } from './menu/menu.component';
+import { FilmsComponent } from './films/films.component';
+import { StateListComponent } from './state-list/state-list.component';
 
 export const routes: Routes = [
-    {
-        path: 'task/:product',
-        component: TaskDetailsComponent,
+    { 
+        path:'taskmenu', 
+        component: MenuComponent,
         canActivate:[AuthGard],
-        children: [
-            { path: 'addtask/:category', component: InputDataComponent }
+        children:[
+            { path: 'task/:category', component: TaskDetailsComponent}
         ]
     },
     { path: 'auth', component: AuthComponent },
-    { path: 'signin', component: SigninComponent },
-    {
-        path: 'character/:id',
-        component: FilmsDetailsComponent,
-        canActivate:[FilmsGuard],
-    },
+    { 
+        path: 'starwars', 
+        component: FilmsComponent,
+        children:[
+            {
+                path: 'character/:id',
+                component: FilmsDetailsComponent,
+                canActivate:[FilmsGuard],
+            },
+        ]},
+    { path: 'state', component: StateListComponent},
 ];
