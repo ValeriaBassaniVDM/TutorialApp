@@ -23,7 +23,8 @@ export class AuthGard implements CanActivate {
         return this.authService.getUserObservable().pipe(
         //return this.store.pipe(select(selectUser),
             map(user  => {                
-                const isAuth = !!user;                
+                const isAuth = !!user;  //se uso service
+                //const isAuth = !!user.id; se uso selector e store        
                 if (isAuth) {
                     return true;
                 }
