@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, GuardResult, MaybeAsync, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
 import { Observable } from "rxjs";
 import { AuthService } from "./auth.service";
 import { map } from "rxjs/operators";
 import { select, Store } from "@ngrx/store";
-import { selectIsAuthenticated, selectUser } from "./reducer/auth.selector";
+import { selectUser } from "./reducer/auth.selector";
 
 @Injectable({
     providedIn: 'root'

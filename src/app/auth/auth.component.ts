@@ -8,7 +8,7 @@ import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { setUser } from './reducer/auth.actions';
-import { selectIsAuthenticated } from './reducer/auth.selector';
+import { selectUserId } from './reducer/auth.selector';
 
 @Component({
   selector: 'app-auth',
@@ -103,7 +103,13 @@ export class AuthComponent {
     // this.user$ = this.store.pipe(select(selectUser));
     // Ottieni lo stato di autenticazione
     // this.isAuthenticated$ = this.store.pipe(select(selectIsAuthenticated));
-
   }
-
+  
+  ngOnInit(){
+    const userId$ = this.store.select(selectUserId);
+    userId$.subscribe(userId => {
+      console.log('User ID:', userId);  // Log dell'ID utente
+    });
+    //console.log(this.store.select(selectUserId));
+  }
 }

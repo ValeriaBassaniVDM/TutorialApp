@@ -24,7 +24,7 @@ export class AlertComponent {
   logout() {
    // this.store.dispatch(unsetUser())
     this.authService.setUser(undefined)
-    this.router.navigate(['/'])
+    this.router.navigate(['/auth'])
     this.close.emit()
   }
 }
